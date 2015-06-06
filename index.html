@@ -15,9 +15,7 @@
 
     <title>Cyclist Safety in Austin</title>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-    <script type="text/javascript">
-      // reqMaker._API_URL = "{% url 'crimeAPI:baseView' %}"
-    </script>
+    
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -40,6 +38,13 @@
       // google analytics stuff here
     </script>
 
+    <!-- reqMaker stuff -->
+    <script type="text/javascript" src="assets/js/reqMaker.js"></script>
+    <script type="text/javascript">
+      reqMaker._API_URL = "http://interactives.dailytexanonline.com/crime/"
+    </script>
+    <!-- end of reqMaker -->
+
     <!-- Slider stuff -->
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
     <script type="text/javascript" src="http://cdn.jsdelivr.net/bootstrap.daterangepicker/1/daterangepicker.js"></script>
@@ -50,7 +55,7 @@
     <!-- End of slider stuff -->
     <!-- List stuff -->
     <link rel="stylesheet" type="text/css" href="assets/css/list.css" />
-
+    <script type="text/javascript" src="assets/js/list.js"></script>
     <!-- End of list stuff -->
     <!-- Main css file --> <link rel="stylesheet" type="text/css" href="assets/css/crimeMain.css" />
 
@@ -95,27 +100,8 @@
       </div>
       <div id="listContainer" class="row">
         <div class="col-md-12">
-          <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
+          <ul class="list-group" id="list">
+            
           </ul>
         </div>
       </div>
