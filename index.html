@@ -42,31 +42,36 @@
     <!-- End of slider stuff -->
   </head>
   <body>
-    <div class="container-fluid">
-      <div role="tabpanel">
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#crime" aria-controls="crime" role="tab" data-toggle="tab">Crime</a></li>
-          <li role="presentation"><a href="#accident" aria-controls="accident" role="tab" data-toggle="tab">Accident</a></li>
-          <li role="presentation"><a href="#prevention" aria-controls="prevention" role="tab" data-toggle="tab">Theft/Prevention</a></li>
-          <li role="presentation"><a href="#register" aria-controls="register" role="tab" data-toggle="tab">Register your Bike</a></li>
-        </ul>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Cyclist Safety in Austin</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Crime</a></li>
+            <li><a href="#">Accident</a></li>
+            <li><a href="#">Theft/Prevention</a></li>
+            <li><a href="#">Register your Bike</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="crime">
-            <div id="sliderContainer" class="row">
-              <div class="col-md-12">
-                <div id="slider" class="pull-left" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-                  <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                  <span></span> <b class="caret"></b>
-                </div>
-              </div>
-            </div>
+
+    <div class="container-fluid">
+      <div id="sliderContainer" class="row" style="padding-top: 75px;">
+        <div class="col-md-12">
+          <div id="slider" class="pull-left" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+            <span></span> <b class="caret"></b>
           </div>
-          <div role="tabpanel" class="tab-pane" id="accident">Accident</div>
-          <div role="tabpanel" class="tab-pane" id="prevention">Theft/Prevention</div>
-          <div role="tabpanel" class="tab-pane" id="register">Register your Bike</div>
         </div>
       </div>
     </div>
