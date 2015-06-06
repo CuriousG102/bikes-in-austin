@@ -26,7 +26,9 @@
     <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css">
     <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css">
     <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css">
+
     <link rel="stylesheet" href="assets/css/app.css">
 
     <!--
@@ -54,8 +56,8 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -75,12 +77,14 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <div class="container-fluid">
-<<<<<<< HEAD
 
-=======
+    <div id="container">
+      <div id="map"></div>
+    </div>
+
+
+    <div class="container-fluid">
       <div class="row top-buffer"></div>
->>>>>>> master
       <div id="sliderContainer" class="row">
         <div class="col-md-12">
           <div id="slider" class="pull-left" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
@@ -118,10 +122,12 @@
     </div>
   </body>
 
-  <script src="assets/js/app.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
   <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
   <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js"></script>
+  <script src="assets/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js"></script>
+  <script src="assets/js/app.js"></script>
 </html>
