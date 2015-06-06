@@ -22,10 +22,35 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" />
+
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular-route.js"></script>
+    -->
+
     <script>
       // google analytics stuff here
     </script>
   </head>
   <body>
+    <div class="container-fluid">
+      <div role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#crime" aria-controls="crime" role="tab" data-toggle="tab">Crime</a></li>
+          <li role="presentation"><a href="#accident" aria-controls="accident" role="tab" data-toggle="tab">Accident</a></li>
+          <li role="presentation"><a href="#prevention" aria-controls="prevention" role="tab" data-toggle="tab">Theft/Prevention</a></li>
+          <li role="presentation"><a href="#register" aria-controls="register" role="tab" data-toggle="tab">Register your Bike</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="crime">Crime</div>
+          <div role="tabpanel" class="tab-pane" id="accident">Accident</div>
+          <div role="tabpanel" class="tab-pane" id="prevention">Theft/Prevention</div>
+          <div role="tabpanel" class="tab-pane" id="register">Register your Bike</div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
