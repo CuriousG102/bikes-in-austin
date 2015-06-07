@@ -144,8 +144,8 @@ var myClass = {
               resp[i]['longitude']]);
         }
       }
-      
-      
+
+
       addMarkers();
     }
 
@@ -162,13 +162,62 @@ $().ready(function() {
   missionControl.addClient(myObject.display);
 });
 
+
+var theftIcon = L.icon({
+  iconUrl: 'assets/img/theft.png',
+  iconSize: [32, 32]
+});
+
+var crashIcon = L.icon({
+    iconUrl: 'assets/img/crash.png',
+    iconSize: [32, 32]
+  });
+
+var injuryIcon = L.icon({
+    iconUrl: 'assets/img/injury.png',
+    iconSize: [32, 32]
+  });
+
+var abandonedIcon = L.icon({
+    iconUrl: 'assets/img/abandoned.png',
+    iconSize: [32, 32]
+  });
+
+
 var addMarkers = function() {
   for (var i=0; i < planes.length; i++) {
-    var marker = new L.marker([planes[i][1],planes[i][2]]);
+    if (planes[0][0] == "THEFT OF BICYCLE") {
+      var marker = new L.marker([planes[i][1],planes[i][2]], {icon: theftIcon});
     marker
       .bindPopup(planes[i][0])
       .addTo(map);
     markers.push(marker);
+    }
+
+    if (planes[0][0] == "CRASH/AUTO VS BICYCLE") {
+      var marker = new L.marker([planes[i][1],planes[i][2]], {icon: crashIcon});
+    marker
+      .bindPopup(planes[i][0])
+      .addTo(map);
+    markers.push(marker);
+    }
+
+    if (planes[0][0] == "BICYCLIST INJURED") {
+      var marker = new L.marker([planes[i][1],planes[i][2]], {icon: injuryIcon});
+    marker
+      .bindPopup(planes[i][0])
+      .addTo(map);
+    markers.push(marker);
+    }
+
+    if (planes[0][0] == "ABANDONED BICYCLES/PARTS") {
+      var marker = new L.marker([planes[i][1],planes[i][2]], {icon: injuryIcon});
+    marker
+      .bindPopup(planes[i][0])
+      .addTo(map);
+    markers.push(marker);
+    }
+
   }
 }
 
@@ -178,5 +227,6 @@ var removeMarkers = function() {
     map.removeLayer(markers[i]);
   }
 }
+
 
 
