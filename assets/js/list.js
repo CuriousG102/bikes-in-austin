@@ -1,4 +1,4 @@
-var List = {
+var Sidebar = {
   list: null,
 
   setup: function() {
@@ -7,9 +7,8 @@ var List = {
 
   display: function(start, end) {
     var isCrime = true;
-    
-    if (isCrime) reqMaker.bike_crimes(start, end, function(err, resp) {
 
+    var listCrimes = function(err, resp) {
       // update...
       var selection = this.list
                         .selectAll(".listItem")
@@ -27,13 +26,15 @@ var List = {
 
       // exit...
       selection.exit().remove();
-
-    }.bind(this));
+    }.bind(this)
+    
+    if (isCrime) reqMaker.bike_crimes(start, end, listCrimes);
+    else reqMaker.bike_accidents(start, end, listCrimes);
   }
 }
 
 $().ready(function () {
-  var list = Object.create(List);
-  list.setup();
-  missionControl.addClient(list.display.bind(list));
+  var sidebar = Object.create(Sidebar);
+  sidebar.setup();
+  missionControl.addClient(sidebar.display.bind(sidebar));
 });
