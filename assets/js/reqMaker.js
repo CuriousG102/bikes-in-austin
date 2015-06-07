@@ -26,26 +26,26 @@ var RequestMaker = {
     },
     bike_crimes : function(startDate, endDate, callback) {
         var bike_crime_offense_codes = [54, 342, 302];
-        this.crime_list(startDate, endDate, 54, null, null, callback);
-        // this.bike_crimes_helper(startDate, endDate, bike_crime_offense_codes, callback, [], []);
-    },
-    bike_accidents : function(startDate, endDate, callback) {
-        this.crime_list(startDate, endDate, 591, null, null, callback);
+        this.bike_crimes_helper(startDate, endDate, bike_crime_offense_codes, callback, [], []);
     },
 
-    // bike_crimes_helper: function(startDate, endDate, offense_codes, callback, resp, accumArray) {
-    //     accumArray = accumArray.concat(resp); // add the response we have so far
+    bike_accidents: function(startDate, endDate, callback) {
+        var bike_accident_offense_codes = [591, 360];
+        this.bike_crimes_helper(startDate, endDate, bike_accident_offense_codes, callback, [], []);
+    },
 
-    //     if (offense_codes.length === 0) callback(null, accumArray); // base case
-    //     var offense_code = offense_codes.pop(); // get the next offense code to get
+    bike_crimes_helper: function(startDate, endDate, offense_codes, clientCallback, resp, accumArray) {
+        accumArray = accumArray.concat(resp); // add the response we have so far
 
-    //     // call crime_list to get us the offenses for one offense code, 
-    //     this.crime_list(startDate, endDate, offense_code, null, null,
-    //                     function(callback, startDate, endDate, offense_codes, accumArray, something, resp) {
-    //                         this.bike_crimes_helper(startDate, endDate, offense_codes, callback, resp, accumArray);
-    //                     }.bind(this, callback, startDate, endDate, offense_codes, accumArray));
+        if (offense_codes.length === 0) {clientCallback(null, accumArray); return;} // base case
+        var offense_code = offense_codes.pop(); // get the next offense code to get
 
-    // },
+        var callback = function(startDate, endDate, offense_codes, clientCallback, accumArray, error, resp) {
+            this.bike_crimes_helper(startDate, endDate, offense_codes, clientCallback, resp, accumArray);
+        }.bind(this, startDate, endDate, offense_codes, clientCallback, accumArray)
+
+        this.crime_list(startDate, endDate, offense_code, null, null, callback);
+    },
 
     _crime_query : function (isCount, increment, isDistrictCount, isAreaCount, isDelayReport, startDate, endDate, offense, category, district, callback) {
         // as I added public facing helper functions, this function slowly
@@ -89,7 +89,7 @@ var RequestMaker = {
         return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0"+dd[0]);
     },
     _query_list: function (url, queryDict, callback) {
-        queryURL = this._encodeQueryData(url, queryDict);
+        var queryURL = this._encodeQueryData(url, queryDict);
         this._query_list_helper(queryURL, [], callback, {});
     },
     _query_list_helper: function(url, accumArray, callback, resp) {
