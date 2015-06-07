@@ -105,3 +105,65 @@ $(document).one("ajaxStop", function () {
   $("#loading").hide();
   sizeLayerControl();
 });
+
+
+function display(startDate, endDate) {
+  reqMaker.bike_accidents(startDate, endDate);
+
+}
+
+/*
+var arrayToBuild = [];
+
+for (var i=0; i < resp.length; i++) {
+   if (resp[i] !== 0)
+       arrayToBuild.push([resp[i]['offenses'][0]['name'],
+                          resp[i]['latitude'],
+                          resp[i]['longitude']]);
+}
+
+*/
+var planes = [];
+
+
+var myClass = {
+
+  display(start, end) {
+    var isCrime = true;
+
+    var myFunction = function(err, resp) {
+      console.log(resp);
+
+
+      for (var i=0; i < resp.length; i++) {
+        if (resp[i] !== 0) {
+          planes.push([resp[i]['offenses'][0]['name'],
+              resp[i]['latitude'],
+              resp[i]['longitude']]);
+        }
+      }
+
+      addMarkers();
+    }
+
+    if (isCrime) {
+      reqMaker.bike_crimes(start, end, myFunction);
+    }
+    else reqMaker.bike_accidents (start, end, myFunction);
+  }
+
+}
+
+$().ready(function() {
+  var myObject = Object.create(myClass);
+  missionControl.addClient(myObject.display);
+});
+
+var addMarkers = function() {
+for (var i=0; i < planes.length; i++) {
+  marker = new L.marker([planes[i][1],planes[i][2]])
+    .bindPopup(planes[i][0])
+    .addTo(map);
+}
+}
+
