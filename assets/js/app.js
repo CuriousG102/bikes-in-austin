@@ -186,7 +186,7 @@ var abandonedIcon = L.icon({
 
 var addMarkers = function() {
   for (var i=0; i < planes.length; i++) {
-    if (planes[0][0] == "THEFT OF BICYCLE") {
+    if (planes[i][0] == "THEFT OF BICYCLE") {
       var marker = new L.marker([planes[i][1],planes[i][2]], {icon: theftIcon});
     marker
       .bindPopup(planes[i][0])
@@ -194,7 +194,7 @@ var addMarkers = function() {
     markers.push(marker);
     }
 
-    if (planes[0][0] == "CRASH/AUTO VS BICYCLE") {
+    if (planes[i][0] == "CRASH/AUTO VS BICYCLE") {
       var marker = new L.marker([planes[i][1],planes[i][2]], {icon: crashIcon});
     marker
       .bindPopup(planes[i][0])
@@ -202,7 +202,7 @@ var addMarkers = function() {
     markers.push(marker);
     }
 
-    if (planes[0][0] == "BICYCLIST INJURED") {
+    if (planes[i][0] == "BICYCLIST INJURED") {
       var marker = new L.marker([planes[i][1],planes[i][2]], {icon: injuryIcon});
     marker
       .bindPopup(planes[i][0])
@@ -210,7 +210,7 @@ var addMarkers = function() {
     markers.push(marker);
     }
 
-    if (planes[0][0] == "ABANDONED BICYCLES/PARTS") {
+    if (planes[i][0] == "ABANDONED BICYCLES/PARTS") {
       var marker = new L.marker([planes[i][1],planes[i][2]], {icon: injuryIcon});
     marker
       .bindPopup(planes[i][0])
