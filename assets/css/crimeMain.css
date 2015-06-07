@@ -1,3 +1,10 @@
 .top-buffer {
     margin-top: 75px;
 }
+
+.difficulty-rating {
+    text-align: center;
+    width: 192px;
+    height: 38px;
+    border-radius: 15px;
+}
