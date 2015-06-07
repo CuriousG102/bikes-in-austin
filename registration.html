@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hack for Change Bicycle Projects">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--
+    Stuff to add to make sharing on Facebook pretty
+
+    <meta property="og:image" content="...screenshot.png"/>
+    <meta property="og:url" content="..."/>
+    <meta property="og:title" content="Cyclist Safety in Austin" />
+    -->
+
+    <title>Cyclist Safety in Austin</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css">
+    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css">
+    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css">
+
+    <link rel="stylesheet" href="assets/css/app.css">
+
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular-route.js"></script>
+    -->
+
+    <script>
+      // google analytics stuff here
+    </script>
+
+    <!-- reqMaker stuff -->
+    <script type="text/javascript" src="assets/js/reqMaker.js"></script>
+    <script type="text/javascript">
+      reqMaker._API_URL = "http://interactives.dailytexanonline.com/crime/"
+    </script>
+    <!-- end of reqMaker -->
+
+    <!-- Slider stuff -->
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/bootstrap.daterangepicker/1/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/bootstrap.daterangepicker/1/daterangepicker-bs3.css" />
+    <script type="text/javascript" src="assets/js/slider.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/slider.css" />
+
+    <!-- End of slider stuff -->
+    <!-- List stuff -->
+    <link rel="stylesheet" type="text/css" href="assets/css/list.css" />
+    <script type="text/javascript" src="assets/js/list.js"></script>
+    <!-- End of list stuff -->
+    <!-- Main css file --> <link rel="stylesheet" type="text/css" href="assets/css/crimeMain.css" />
+
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Cyclist Safety in Austin</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Crime</a></li>
+            <li><a href="#">Accident</a></li>
+            <li><a href="#">Theft/Prevention</a></li>
+            <li class="active"><a href="registration.html">Register your Bike</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="col-md-3 col-offset-6 centered">
+        <form >
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="name" class="form-control" id="name" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Password</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help-block">Example block-level help text here.</p>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Check me out
+            </label>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js"></script>
+  <script src="assets/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js"></script>
+  <script src="assets/js/app.js"></script>
+</html>
