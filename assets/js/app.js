@@ -1,5 +1,8 @@
 var map, featureList, boroughSearch = [], theaterSearch = [], museumSearch = [];
 
+
+var markers = [];
+
 $(window).resize(function() {
   sizeLayerControl();
 });
@@ -133,7 +136,7 @@ var myClass = {
     var myFunction = function(err, resp) {
       console.log(resp);
 
-
+      removeMarkers();
       for (var i=0; i < resp.length; i++) {
         if (resp[i] !== 0) {
           planes.push([resp[i]['offenses'][0]['name'],
@@ -141,7 +144,8 @@ var myClass = {
               resp[i]['longitude']]);
         }
       }
-
+      
+      
       addMarkers();
     }
 
@@ -159,10 +163,20 @@ $().ready(function() {
 });
 
 var addMarkers = function() {
-for (var i=0; i < planes.length; i++) {
-  marker = new L.marker([planes[i][1],planes[i][2]])
-    .bindPopup(planes[i][0])
-    .addTo(map);
+  for (var i=0; i < planes.length; i++) {
+    var marker = new L.marker([planes[i][1],planes[i][2]]);
+    marker
+      .bindPopup(planes[i][0])
+      .addTo(map);
+    markers.push(marker);
+  }
 }
+
+var removeMarkers = function() {
+  planes = [];
+  for (var i=0; i < markers.length; i++) {
+    map.removeLayer(markers[i]);
+  }
 }
+
 
