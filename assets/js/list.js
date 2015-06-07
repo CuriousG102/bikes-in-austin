@@ -5,24 +5,26 @@ var Sidebar = {
     this.list = d3.select("#list");
   },
 
-  display: function(start, end) {
-    var isCrime = true;
-
+  display: function(start, end, isCrime) {
     var listCrimes = function(err, resp) {
+      function formatTime(timeString) {
+        return moment(timeString).format("MMMM Do, YYYY");
+      }
+
       // update...
       var selection = this.list
                         .selectAll(".listItem")
                         .data(resp)
                         .html(function(d, i) {return [d['offenses'][0]['name'],
                                                       d['offense_area_command'],
-                                                      moment(d['offense_time'])].join("<br>");});
+                                                      formatTime(d['offense_time'])].join("<br>");});
       // enter...
       selection.enter()
       .append("li")
       .attr("class", "listItem list-group-item")
       .html(function(d, i) {return [d['offenses'][0]['name'],
                                     d['offense_area_command'],
-                                    moment(d['offense_time'])].join("<br>");});
+                                    formatTime(d['offense_time'])].join("<br>");});
 
       // exit...
       selection.exit().remove();

@@ -9,6 +9,21 @@ var InteractiveController = {
     clients: [],
     startDate: null,
     endDate: null,
+    isCrime: true,
+
+    toggle: function() {
+        this.isCrime = !this.isCrime;
+
+        console.log("poop");
+        // daterangepicker has a bad bug that only sometimes presents and that cuases it to lose its date setting
+        // this should be an ugly but functional workaround.
+        this.slider.data('daterangepicker').setStartDate(this.startDate);
+        this.slider.data('daterangepicker').setEndDate(this.endDate);
+        for (var i = 0; i < this.clients.length; i++)
+            this.clients[i](this.slider.data('daterangepicker').startDate.toDate(), 
+                            this.slider.data('daterangepicker').endDate.toDate(),
+                            this.isCrime);
+    },
 
     setup: function() {
         var MILLISECONDS_IN_THE_PAST = this.DAYS_IN_THE_PAST * this.MILLISECONDS_IN_A_DAY;
@@ -50,11 +65,12 @@ var InteractiveController = {
         this.clients.push(clientFunction);
         // daterangepicker has a bad bug that only sometimes presents and that cuases it to lose its date setting
         // this should be an ugly but functional workaround.
-        this.slider.data('daterangepicker').setStartDate(this.startDate)
-        this.slider.data('daterangepicker').setEndDate(this.endDate)
+        this.slider.data('daterangepicker').setStartDate(this.startDate);
+        this.slider.data('daterangepicker').setEndDate(this.endDate);
 
         clientFunction(this.slider.data('daterangepicker').startDate.toDate(), 
-                       this.slider.data('daterangepicker').endDate.toDate());
+                       this.slider.data('daterangepicker').endDate.toDate(),
+                       this.isCrime);
     },
 
     update: function() {
@@ -65,7 +81,8 @@ var InteractiveController = {
 
         for (var i = 0; i < this.clients.length; i++)
             this.clients[i](this.slider.data('daterangepicker').startDate.toDate(), 
-                            this.slider.data('daterangepicker').endDate.toDate());
+                            this.slider.data('daterangepicker').endDate.toDate(),
+                            this.isCrime);
     }
 
 }

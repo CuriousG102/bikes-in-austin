@@ -128,8 +128,7 @@ var planes = [];
 
 var myClass = {
 
-  display(start, end) {
-    var isCrime = true;
+  display(start, end, isCrime) {
 
     var myFunction = function(err, resp) {
       console.log(resp);
