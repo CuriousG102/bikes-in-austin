@@ -211,7 +211,7 @@ var addMarkers = function() {
     }
 
     if (planes[i][0] == "ABANDONED BICYCLES/PARTS") {
-      var marker = new L.marker([planes[i][1],planes[i][2]], {icon: injuryIcon});
+      var marker = new L.marker([planes[i][1],planes[i][2]], {icon: abandonedIcon});
     marker
       .bindPopup(planes[i][0])
       .addTo(map);
