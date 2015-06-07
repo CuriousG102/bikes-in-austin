@@ -5,9 +5,7 @@ var Sidebar = {
     this.list = d3.select("#list");
   },
 
-  display: function(start, end) {
-    var isCrime = true;
-
+  display: function(start, end, isCrime) {
     var listCrimes = function(err, resp) {
       function formatTime(timeString) {
         return moment(timeString).format("MMMM Do, YYYY");
