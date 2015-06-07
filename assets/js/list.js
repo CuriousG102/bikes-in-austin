@@ -1,4 +1,4 @@
-var List = {
+var Sidebar = {
   list: null,
 
   setup: function() {
@@ -7,7 +7,7 @@ var List = {
 
   display: function(start, end) {
     var crimeDummy = true;
-    
+
 
     console.log(start);
     console.log(end);
@@ -22,7 +22,7 @@ var List = {
 }
 
 $().ready(function () {
-  var list = Object.create(List);
-  list.setup();
-  missionControl.addClient(list.display.bind(list));
+  var sidebar = Object.create(Sidebar);
+  sidebar.setup();
+  missionControl.addClient(sidebar.display.bind(sidebar));
 });
