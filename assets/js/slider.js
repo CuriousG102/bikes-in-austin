@@ -2,7 +2,7 @@ var InteractiveController = {
     MILLISECONDS_IN_A_DAY:  24 * 60 * 60 * 1000,
     DAYS_IN_THE_PAST: 500,
     DAYS_IN_PAST_FOR_DEFAULT: 6,
-    MAX_RANGE: 30,
+    MAX_RANGE: 365,
     MIN_RANGE: 2,
     DAYS_FROM_PRESENT: 7,
     slider: null,
@@ -14,7 +14,6 @@ var InteractiveController = {
     toggle: function() {
         this.isCrime = !this.isCrime;
 
-        console.log("poop");
         // daterangepicker has a bad bug that only sometimes presents and that cuases it to lose its date setting
         // this should be an ugly but functional workaround.
         this.slider.data('daterangepicker').setStartDate(this.startDate);
